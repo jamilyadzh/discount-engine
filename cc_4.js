@@ -31,3 +31,19 @@ for (let product of products) {
   }
 }
 console.log("After category discounts:", products);
+
+// function to handle customer type discounts
+// if-else if chain checks type and returns correct extra discount
+function getExtraDiscount(customerType) {
+  let extraDiscount = 0;
+
+  if (customerType === "student") {
+    extraDiscount = 0.05; // 5%
+  } else if (customerType === "senior") {
+    extraDiscount = 0.07; // 7%
+  } else {
+    extraDiscount = 0; // No discount
+  }
+
+  return extraDiscount;
+}
