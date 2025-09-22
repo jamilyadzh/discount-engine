@@ -47,3 +47,24 @@ function getExtraDiscount(customerType) {
 
   return extraDiscount;
 }
+
+// simulate checkout for 3 customers
+let customerTypes = ["regular", "student", "senior"]; // Example customers
+
+for (let i = 0; i < 3; i++) {
+  let subtotal = 0; // reset subtotal each loop
+
+  // Each customer buys one of each product (if in stock)
+  for (let product of products) {
+    if (product.inventory > 0) {
+      subtotal += product.price;
+      product.inventory -= 1; // decrease inventory
+    }
+  }
+
+  // apply extra discount for this customer
+  let discountRate = getExtraDiscount(customerTypes[i]);
+  let total = subtotal - (subtotal * discountRate);
+
+  console.log(`Customer ${i + 1} (${customerTypes[i]}) total: $${total.toFixed(2)}`);
+}
