@@ -68,3 +68,10 @@ for (let i = 0; i < 3; i++) {
 
   console.log(`Customer ${i + 1} (${customerTypes[i]}) total: $${total.toFixed(2)}`);
 }
+
+// use for... in to log a single product after discounts
+let sampleProduct = products[0];
+console.log("Logging one product with for...in:");
+for (let key in sampleProduct) {
+  console.log(`${key}: ${sampleProduct[key]}`);
+}
